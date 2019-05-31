@@ -20,8 +20,7 @@ namespace MyCalc
          * History
          * 
          */
-
-
+         
         double num1 = 0;
         double num2 = 0;
         double memory = 0;
@@ -36,6 +35,7 @@ namespace MyCalc
             lblOperations.Text = "";
             btnMC.Enabled = false;
             btnMR.Enabled = false;
+            lbHistory.Items.Clear();
         }
 
         private void btnNumbers_click(object sender, EventArgs e)
@@ -89,6 +89,11 @@ namespace MyCalc
             }
 
             tbResult.Text = result.ToString();
+
+            //to the history
+            string oper = lblOperations.Text;
+            string history = tbInput.Text + " " + oper + " " + tbInput2.Text + " = " + tbResult.Text;
+            lbHistory.Items.Add(history);
         }
 
         private void btnClrAll_Click(object sender, EventArgs e)
@@ -131,6 +136,16 @@ namespace MyCalc
         {
             double res = double.Parse(tbInput.Text);
             memory -= res;
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            if (!lbHistory.Visible)
+            {
+                lbHistory.Visible = true;
+            }
+            else
+                lbHistory.Visible = false;
         }
     }
 }

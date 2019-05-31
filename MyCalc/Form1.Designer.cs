@@ -55,6 +55,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tbInput = new System.Windows.Forms.TextBox();
+            this.lbHistory = new System.Windows.Forms.ListBox();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbResult
@@ -421,12 +423,40 @@
             this.tbInput.TabIndex = 27;
             this.tbInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // lbHistory
+            // 
+            this.lbHistory.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHistory.FormattingEnabled = true;
+            this.lbHistory.ItemHeight = 15;
+            this.lbHistory.Location = new System.Drawing.Point(248, 151);
+            this.lbHistory.Name = "lbHistory";
+            this.lbHistory.Size = new System.Drawing.Size(152, 229);
+            this.lbHistory.TabIndex = 54;
+            this.lbHistory.Visible = false;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHistory.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.Thistle;
+            this.btnHistory.Location = new System.Drawing.Point(248, 386);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(152, 50);
+            this.btnHistory.TabIndex = 55;
+            this.btnHistory.Text = "Show history";
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(277, 465);
+            this.ClientSize = new System.Drawing.Size(427, 465);
+            this.Controls.Add(this.btnHistory);
+            this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.tbResult);
             this.Controls.Add(this.lblOperations);
             this.Controls.Add(this.tbInput2);
@@ -453,6 +483,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbInput);
+            this.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -492,6 +523,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbInput;
+        private System.Windows.Forms.ListBox lbHistory;
+        private System.Windows.Forms.Button btnHistory;
     }
 }
 
