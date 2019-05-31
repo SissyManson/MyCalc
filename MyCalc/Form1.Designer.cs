@@ -33,10 +33,10 @@
             this.lblOperations = new System.Windows.Forms.Label();
             this.tbInput2 = new System.Windows.Forms.TextBox();
             this.btnClrAll = new System.Windows.Forms.Button();
-            this.btnMemRemove = new System.Windows.Forms.Button();
-            this.btnMemAdd = new System.Windows.Forms.Button();
-            this.btnMemRecall = new System.Windows.Forms.Button();
-            this.btnMemClr = new System.Windows.Forms.Button();
+            this.btnMminus = new System.Windows.Forms.Button();
+            this.btnMPlus = new System.Windows.Forms.Button();
+            this.btnMR = new System.Windows.Forms.Button();
+            this.btnMC = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
             this.btnPercent = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
@@ -101,57 +101,61 @@
             this.btnClrAll.UseVisualStyleBackColor = false;
             this.btnClrAll.Click += new System.EventHandler(this.btnClrAll_Click);
             // 
-            // btnMemRemove
+            // btnMminus
             // 
-            this.btnMemRemove.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnMemRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMemRemove.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemRemove.ForeColor = System.Drawing.Color.Plum;
-            this.btnMemRemove.Location = new System.Drawing.Point(192, 126);
-            this.btnMemRemove.Name = "btnMemRemove";
-            this.btnMemRemove.Size = new System.Drawing.Size(50, 30);
-            this.btnMemRemove.TabIndex = 48;
-            this.btnMemRemove.Text = "M-";
-            this.btnMemRemove.UseVisualStyleBackColor = false;
+            this.btnMminus.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnMminus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMminus.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMminus.ForeColor = System.Drawing.Color.Plum;
+            this.btnMminus.Location = new System.Drawing.Point(192, 126);
+            this.btnMminus.Name = "btnMminus";
+            this.btnMminus.Size = new System.Drawing.Size(50, 30);
+            this.btnMminus.TabIndex = 48;
+            this.btnMminus.Text = "M-";
+            this.btnMminus.UseVisualStyleBackColor = false;
+            this.btnMminus.Click += new System.EventHandler(this.btnMminus_Click);
             // 
-            // btnMemAdd
+            // btnMPlus
             // 
-            this.btnMemAdd.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnMemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMemAdd.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemAdd.ForeColor = System.Drawing.Color.Plum;
-            this.btnMemAdd.Location = new System.Drawing.Point(136, 126);
-            this.btnMemAdd.Name = "btnMemAdd";
-            this.btnMemAdd.Size = new System.Drawing.Size(50, 30);
-            this.btnMemAdd.TabIndex = 47;
-            this.btnMemAdd.Text = "M+";
-            this.btnMemAdd.UseVisualStyleBackColor = false;
+            this.btnMPlus.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnMPlus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMPlus.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMPlus.ForeColor = System.Drawing.Color.Plum;
+            this.btnMPlus.Location = new System.Drawing.Point(136, 126);
+            this.btnMPlus.Name = "btnMPlus";
+            this.btnMPlus.Size = new System.Drawing.Size(50, 30);
+            this.btnMPlus.TabIndex = 47;
+            this.btnMPlus.Text = "M+";
+            this.btnMPlus.UseVisualStyleBackColor = false;
+            this.btnMPlus.Click += new System.EventHandler(this.btnMPlus_Click);
             // 
-            // btnMemRecall
+            // btnMR
             // 
-            this.btnMemRecall.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnMemRecall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMemRecall.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemRecall.ForeColor = System.Drawing.Color.Plum;
-            this.btnMemRecall.Location = new System.Drawing.Point(80, 126);
-            this.btnMemRecall.Name = "btnMemRecall";
-            this.btnMemRecall.Size = new System.Drawing.Size(50, 30);
-            this.btnMemRecall.TabIndex = 46;
-            this.btnMemRecall.Text = "MR";
-            this.btnMemRecall.UseVisualStyleBackColor = false;
+            this.btnMR.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnMR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMR.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMR.ForeColor = System.Drawing.Color.Plum;
+            this.btnMR.Location = new System.Drawing.Point(80, 126);
+            this.btnMR.Name = "btnMR";
+            this.btnMR.Size = new System.Drawing.Size(50, 30);
+            this.btnMR.TabIndex = 46;
+            this.btnMR.Text = "MR";
+            this.btnMR.UseVisualStyleBackColor = false;
+            this.btnMR.Click += new System.EventHandler(this.btnMR_Click);
             // 
-            // btnMemClr
+            // btnMC
             // 
-            this.btnMemClr.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnMemClr.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMemClr.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemClr.ForeColor = System.Drawing.Color.Plum;
-            this.btnMemClr.Location = new System.Drawing.Point(24, 126);
-            this.btnMemClr.Name = "btnMemClr";
-            this.btnMemClr.Size = new System.Drawing.Size(50, 30);
-            this.btnMemClr.TabIndex = 45;
-            this.btnMemClr.Text = "MC";
-            this.btnMemClr.UseVisualStyleBackColor = false;
+            this.btnMC.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnMC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMC.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMC.ForeColor = System.Drawing.Color.Plum;
+            this.btnMC.Location = new System.Drawing.Point(24, 126);
+            this.btnMC.Name = "btnMC";
+            this.btnMC.Size = new System.Drawing.Size(50, 30);
+            this.btnMC.TabIndex = 45;
+            this.btnMC.Text = "MC";
+            this.btnMC.UseVisualStyleBackColor = false;
+            this.btnMC.Click += new System.EventHandler(this.btnMC_Click);
             // 
             // btnEquals
             // 
@@ -181,7 +185,7 @@
             this.btnPercent.TabIndex = 43;
             this.btnPercent.Text = "%";
             this.btnPercent.UseVisualStyleBackColor = false;
-            this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
+            this.btnPercent.Click += new System.EventHandler(this.btnoperchange_click);
             // 
             // btnDivide
             // 
@@ -196,7 +200,7 @@
             this.btnDivide.TabIndex = 42;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = false;
-            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
+            this.btnDivide.Click += new System.EventHandler(this.btnoperchange_click);
             // 
             // btnMultiply
             // 
@@ -211,7 +215,7 @@
             this.btnMultiply.TabIndex = 41;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = false;
-            this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
+            this.btnMultiply.Click += new System.EventHandler(this.btnoperchange_click);
             // 
             // btn_Minus
             // 
@@ -226,7 +230,7 @@
             this.btn_Minus.TabIndex = 40;
             this.btn_Minus.Text = "-";
             this.btn_Minus.UseVisualStyleBackColor = false;
-            this.btn_Minus.Click += new System.EventHandler(this.btn_Minus_Click);
+            this.btn_Minus.Click += new System.EventHandler(this.btnoperchange_click);
             // 
             // btnPlus
             // 
@@ -241,7 +245,7 @@
             this.btnPlus.TabIndex = 39;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = false;
-            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
+            this.btnPlus.Click += new System.EventHandler(this.btnoperchange_click);
             // 
             // btnDot
             // 
@@ -427,10 +431,10 @@
             this.Controls.Add(this.lblOperations);
             this.Controls.Add(this.tbInput2);
             this.Controls.Add(this.btnClrAll);
-            this.Controls.Add(this.btnMemRemove);
-            this.Controls.Add(this.btnMemAdd);
-            this.Controls.Add(this.btnMemRecall);
-            this.Controls.Add(this.btnMemClr);
+            this.Controls.Add(this.btnMminus);
+            this.Controls.Add(this.btnMPlus);
+            this.Controls.Add(this.btnMR);
+            this.Controls.Add(this.btnMC);
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnPercent);
             this.Controls.Add(this.btnDivide);
@@ -466,10 +470,10 @@
         private System.Windows.Forms.Label lblOperations;
         private System.Windows.Forms.TextBox tbInput2;
         private System.Windows.Forms.Button btnClrAll;
-        private System.Windows.Forms.Button btnMemRemove;
-        private System.Windows.Forms.Button btnMemAdd;
-        private System.Windows.Forms.Button btnMemRecall;
-        private System.Windows.Forms.Button btnMemClr;
+        private System.Windows.Forms.Button btnMminus;
+        private System.Windows.Forms.Button btnMPlus;
+        private System.Windows.Forms.Button btnMR;
+        private System.Windows.Forms.Button btnMC;
         private System.Windows.Forms.Button btnEquals;
         private System.Windows.Forms.Button btnPercent;
         private System.Windows.Forms.Button btnDivide;

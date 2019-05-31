@@ -14,18 +14,17 @@ namespace MyCalc
     {
         /*
          * Creating a calc with 3tb for the num1&2 & the result + lbl to show the operation(+, -, * , /, % ) 
-         * Event for clicking the nums 0-9
-         * Event for the operations
+         *  Event for clicking the nums 0-9
+         *  Event for the operations
          * Memory
          * History
          * 
-         * Problems: Second num in tb1,wtf
          */
-        bool isOperPerf = false;
-        char lastOperation = ' ';
+
+
         double num1 = 0;
         double num2 = 0;
-        bool IsFocused { get; }
+        double memory = 0;
 
         public Form1()
         {
@@ -34,118 +33,62 @@ namespace MyCalc
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tbInput.Focus();
+            lblOperations.Text = "";
+            btnMC.Enabled = false;
+            btnMR.Enabled = false;
         }
 
         private void btnNumbers_click(object sender, EventArgs e)
         {
-            if (isOperPerf)
-            {
-                lblOperations.Text = lastOperation.ToString();
-                tbInput2.Focus();
-               // textBox_Result.Clear();
-            }
-
-            isOperPerf = false;
-            Button button = (Button)sender;
-
-            //I have to check if the '.' is clicked. If it is, to paste it in the tb1 or tb2, if it's not just to show what button is clicked 
-            if (button.Text == ".")
-            {
-                if (!tbInput.Text.Contains("."))
-                {
-                    tbInput.Text = tbInput.Text + button.Text;
-                }
-                else
-                {
-                    tbInput2.Text = tbInput2.Text + button.Text;
-                }
-            }else
-            {
-                if (tbInput.Focus())
-                {
-                    tbInput.Text = tbInput.Text + button.Text;
-                }
-                else if(tbInput2.Focus())
-                {
-                    tbInput2.Text = tbInput2.Text + button.Text;
-                }
-            }
-        }
-
-        private void btnPlus_Click(object sender, EventArgs e)
-        {
-            lastOperation = '+';
-            num1 = double.Parse(tbInput.Text);
-            lblOperations.Text = lastOperation.ToString();
-            if(num1 != 0)
-            {
-                tbInput2.Focus();
-            }
-           // tbInput.Clear();
-        }
-
-        private void btn_Minus_Click(object sender, EventArgs e)
-        {
-            lastOperation = '-';
-            num1 = double.Parse(tbInput.Text);
-            lblOperations.Text = lastOperation.ToString();
-            if (num1 != 0)
-            {
-                tbInput2.Focus();
-            }
-            // tbInput.Clear();
-        }
-
-        private void btnMultiply_Click(object sender, EventArgs e)
-        {
-            lastOperation = '*';
-            num1 = double.Parse(tbInput.Text);
-            lblOperations.Text = lastOperation.ToString();
-            if (num1 != 0)
-            {
-                tbInput2.Focus();
-            }
-            // tbInput.Clear();
-        }
-
-        private void btnDivide_Click(object sender, EventArgs e)
-        {
-            lastOperation = '/';
-            num1 = double.Parse(tbInput.Text);
-            lblOperations.Text = lastOperation.ToString();
-            if (num1 != 0)
-            {
-                tbInput2.Focus();
-            }
-            // tbInput.Clear();
-        }
-
-        private void btnPercent_Click(object sender, EventArgs e)
-        {
-            lastOperation = '%';
-            num1 = double.Parse(tbInput.Text);
-            lblOperations.Text = lastOperation.ToString();
-            if (num1 != 0)
-            {
-                tbInput2.Focus();
-            }
-            //tbInput.Clear();
+            string btnNumber = ((Button)sender).Text;
+            if (lblOperations.Text == "")
+                tbInput.Text += btnNumber;
+            else
+                tbInput2.Text += btnNumber;
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            num2 = double.Parse(tbInput2.Text);
-            //tbInput2.Clear();
-            switch (lastOperation)
+            try
             {
-                case '+': tbResult.Text = (num1 + num2).ToString(); break;
-                case '-': tbResult.Text = (num1 - num2).ToString(); break;
-                case '*': tbResult.Text = (num1 * num2).ToString(); break;
-                case '/': tbResult.Text = (num1 / num2).ToString(); break;
-                case '%': tbResult.Text = (num1 % num2).ToString(); break;
+                num1 = double.Parse(tbInput.Text);
+                num2 = double.Parse(tbInput2.Text);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Empty Fields !");
+
+            }
+            catch (OverflowException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            catch (Exception)
+            {
+
             }
 
+            double result = 0;
+
+            switch (lblOperations.Text)
+            {
+                case "+": result = num1 + num2; break;
+                case "-": result = num1 - num2; break;
+                case "*": result = num1 * num2; break;
+                case "%": result = num1 % num2; break;
+                case "/":
+                    try
+                    {
+                        result = num1 / num2;
+                    }
+                    catch (DivideByZeroException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+            }
+
+            tbResult.Text = result.ToString();
         }
 
         private void btnClrAll_Click(object sender, EventArgs e)
@@ -154,6 +97,40 @@ namespace MyCalc
             tbInput2.Text = "";
             tbResult.Text = "";
             lblOperations.Text = "";
+        }
+
+        private void btnoperchange_click(object sender, EventArgs e)
+        {
+            string symbol = ((Button)sender).Text;
+            lblOperations.Text = symbol;
+        }
+
+        private void btnMC_Click(object sender, EventArgs e)
+        {
+            memory = 0;
+            tbResult.Text = memory.ToString();
+            tbInput.Text = "";
+            btnMC.Enabled = false;
+            btnMR.Enabled = false;
+        }
+
+        private void btnMR_Click(object sender, EventArgs e)
+        {
+            tbResult.Text = memory.ToString();
+        }
+
+        private void btnMPlus_Click(object sender, EventArgs e)
+        {
+            double res = double.Parse(tbInput.Text);
+            memory += res;
+            btnMR.Enabled = true;
+            btnMC.Enabled = true;
+        }
+
+        private void btnMminus_Click(object sender, EventArgs e)
+        {
+            double res = double.Parse(tbInput.Text);
+            memory -= res;
         }
     }
 }
