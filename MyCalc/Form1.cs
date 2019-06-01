@@ -37,7 +37,7 @@ namespace MyCalc
             btnMR.Enabled = false;
             lbHistory.Items.Clear();
         }
-
+        //buttons 0-9 and .
         private void btnNumbers_click(object sender, EventArgs e)
         {
             string btnNumber = ((Button)sender).Text;
@@ -46,7 +46,7 @@ namespace MyCalc
             else
                 tbInput2.Text += btnNumber;
         }
-
+        // button =
         private void btnEquals_Click(object sender, EventArgs e)
         {
             try
@@ -67,6 +67,16 @@ namespace MyCalc
             {
 
             }
+            calculate();
+
+            //to the history
+            string oper = lblOperations.Text;
+            string history = tbInput.Text + " " + oper + " " + tbInput2.Text + " = " + tbResult.Text;
+            lbHistory.Items.Add(history);
+        }
+        //function for calculating the result
+        private void calculate()
+        {
 
             double result = 0;
 
@@ -89,13 +99,8 @@ namespace MyCalc
             }
 
             tbResult.Text = result.ToString();
-
-            //to the history
-            string oper = lblOperations.Text;
-            string history = tbInput.Text + " " + oper + " " + tbInput2.Text + " = " + tbResult.Text;
-            lbHistory.Items.Add(history);
         }
-
+        //btn CE
         private void btnClrAll_Click(object sender, EventArgs e)
         {
             tbInput.Text = "";
@@ -103,13 +108,23 @@ namespace MyCalc
             tbResult.Text = "";
             lblOperations.Text = "";
         }
-
+        //for the operations + - * / %
         private void btnoperchange_click(object sender, EventArgs e)
         {
             string symbol = ((Button)sender).Text;
             lblOperations.Text = symbol;
-        }
+            
+            if (tbInput.Text != "" && tbInput2.Text != "" && lblOperations.Text != "")
+            {
+                tbInput.Text = tbResult.Text;
+                tbInput2.Clear();
+                tbResult.Text = "";
 
+                calculate();
+            }
+            
+        }
+        //for the memory
         private void btnMC_Click(object sender, EventArgs e)
         {
             memory = 0;
@@ -138,6 +153,7 @@ namespace MyCalc
             memory -= res;
         }
 
+        //history
         private void btnHistory_Click(object sender, EventArgs e)
         {
             if (!lbHistory.Visible)
