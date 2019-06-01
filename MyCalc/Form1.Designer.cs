@@ -78,6 +78,7 @@
             this.lblOperations.Size = new System.Drawing.Size(20, 25);
             this.lblOperations.TabIndex = 52;
             this.lblOperations.Text = "*";
+            this.lblOperations.TextChanged += new System.EventHandler(this.lblOperations_TextChanged);
             // 
             // tbInput2
             // 

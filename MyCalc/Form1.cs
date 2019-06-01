@@ -77,7 +77,6 @@ namespace MyCalc
         //function for calculating the result
         private void calculate()
         {
-
             double result = 0;
 
             switch (lblOperations.Text)
@@ -113,14 +112,16 @@ namespace MyCalc
         {
             string symbol = ((Button)sender).Text;
             lblOperations.Text = symbol;
-            
             if (tbInput.Text != "" && tbInput2.Text != "" && lblOperations.Text != "")
             {
-                tbInput.Text = tbResult.Text;
                 tbInput2.Clear();
+                tbInput.Text = tbResult.Text;
                 tbResult.Text = "";
 
-                calculate();
+                if (tbInput2.Text != "")
+                {
+                    calculate();
+                }
             }
             
         }
@@ -162,6 +163,14 @@ namespace MyCalc
             }
             else
                 lbHistory.Visible = false;
+        }
+
+        private void lblOperations_TextChanged(object sender, EventArgs e)
+        {
+            if (tbInput.Text != "" && tbInput2.Text != "")
+            {
+                btnEquals.PerformClick();
+            }
         }
     }
 }
